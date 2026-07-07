@@ -207,3 +207,19 @@ Sprint 1
 ⬜ UI Components
 
 We've officially finished the infrastructure phase.
+
+📘 DUWEM Engineering Journal
+
+Since we're treating this like a professional engineering project, I'd also suggest adding today's work to the journal after Radius is complete.
+
+Entry Title:
+
+Chapter 4 — Completing the Foundation Token System (Typography, Spacing & Radius)
+
+Include:
+
+Implemented typography tokens (fonts, weights, sizes, line heights, letter spacing).
+Implemented spacing scale and semantic spacing tokens.
+Implemented radius tokens.
+Verified package integrity with pnpm --filter @duwem/foundation run check-types.
+Established a scalable token architecture that will be shared across all DUWEM applications and UI components.
