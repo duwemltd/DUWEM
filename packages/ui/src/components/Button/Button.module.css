@@ -1,0 +1,49 @@
+.button {
+  border: none;
+  cursor: pointer;
+
+  border-radius: var(--radius-md);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  transition: 0.2s ease;
+}
+
+.primary {
+  background: var(--color-action-primary);
+  color: white;
+}
+
+.secondary {
+  background: white;
+  border: 1px solid #d4d4d4;
+}
+
+.ghost {
+  background: transparent;
+}
+
+.danger {
+  background: #dc2626;
+  color: white;
+}
+
+.sm {
+  padding: 8px 12px;
+}
+
+.md {
+  padding: var(--space-4) var(--space-6);
+}
+
+.lg {
+  padding: 14px 20px;
+}
+
+.fullWidth {
+  width: 100%;
+}
