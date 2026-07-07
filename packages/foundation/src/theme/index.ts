@@ -1,5 +1,5 @@
 import * as colors from "../colors";
-import { typography } from "../typography";
+import * as typography from "../typography";
 import { spacingTokens } from "../spacing";
 import { radius } from "../radius";
 import { shadows } from "../shadows";

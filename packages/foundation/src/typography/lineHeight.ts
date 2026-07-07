@@ -1,4 +1,4 @@
-export const lineHeights = {
+export const lineHeight = {
   tight: 1.2,
   normal: 1.5,
   relaxed: 1.75,
