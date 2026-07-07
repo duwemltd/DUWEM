@@ -1,3 +1,3 @@
 export * from "./card";
 export * from "./code";
-export * from "./Typography";
+export * from "./components/Typography";
