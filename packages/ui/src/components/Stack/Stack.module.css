@@ -1,0 +1,56 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.spacing-0 {
+  gap: var(--space-0);
+}
+
+.spacing-1 {
+  gap: var(--space-1);
+}
+
+.spacing-2 {
+  gap: var(--space-2);
+}
+
+.spacing-3 {
+  gap: var(--space-3);
+}
+
+.spacing-4 {
+  gap: var(--space-4);
+}
+
+.spacing-5 {
+  gap: var(--space-5);
+}
+
+.spacing-6 {
+  gap: var(--space-6);
+}
+
+.spacing-8 {
+  gap: var(--space-8);
+}
+
+.spacing-10 {
+  gap: var(--space-10);
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.align-stretch {
+  align-items: stretch;
+}
