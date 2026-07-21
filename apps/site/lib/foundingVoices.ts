@@ -16,10 +16,20 @@ export interface FoundingVoiceRecord {
   completed_at: string | null;
 }
 
+function getClient() {
+  if (!adminClient) {
+    throw new Error("Supabase admin client is not configured.");
+  }
+
+  return adminClient;
+}
+
 export async function createFoundingVoice(
   input: FoundingVoiceInput
 ): Promise<FoundingVoiceRecord> {
-  const { data, error } = await adminClient
+  const client = getClient();
+
+  const { data, error } = await client
     .from("founding_voices")
     .insert({
       name: input.name,

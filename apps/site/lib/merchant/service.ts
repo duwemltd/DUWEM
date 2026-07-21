@@ -9,10 +9,20 @@ interface CreateMerchantInput {
   phone: string | null;
 }
 
+function getClient() {
+  if (!adminClient) {
+    throw new Error("Supabase admin client is not configured.");
+  }
+
+  return adminClient;
+}
+
 export async function createMerchant(
   input: CreateMerchantInput
 ): Promise<Merchant> {
-  const { data, error } = await adminClient
+  const client = getClient();
+
+  const { data, error } = await client
     .from("merchants")
     .insert({
       founding_voice_id: input.foundingVoiceId,
@@ -32,7 +42,9 @@ export async function createMerchant(
 }
 
 export async function getMerchants() {
-  const { data, error } = await adminClient
+  const client = getClient();
+
+  const { data, error } = await client
     .from("merchants")
     .select("*")
     .order("created_at", {
@@ -49,7 +61,9 @@ export async function getMerchants() {
 export async function getMerchant(
   id: string
 ) {
-  const { data, error } = await adminClient
+  const client = getClient();
+
+  const { data, error } = await client
     .from("merchants")
     .select("*")
     .eq("id", id)
@@ -65,7 +79,9 @@ export async function getMerchant(
 export async function getMerchantByUserId(
   userId: string
 ): Promise<Merchant | null> {
-  const { data, error } = await adminClient
+  const client = getClient();
+
+  const { data, error } = await client
     .from("merchants")
     .select("*")
     .eq("user_id", userId)
