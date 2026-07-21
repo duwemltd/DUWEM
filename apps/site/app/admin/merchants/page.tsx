@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { Stack, Typography } from "@repo/ui";
 
 import { getMerchants } from "../../../lib/merchant/service";
