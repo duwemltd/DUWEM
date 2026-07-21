@@ -1,5 +1,18 @@
-import { Hero } from "@repo/ui";
+import { Header } from "./components/layout/Header";
+import { Hero } from "./components/sections/Hero";
+import { HelpShape } from "./components/sections/HelpShape";
+import { OurWhy } from "./components/sections/OurWhy";
 
 export default function HomePage() {
-  return <Hero />;
+  return (
+    <>
+      <Header />
+
+      <Hero />
+
+      <HelpShape />
+
+      <OurWhy />
+    </>
+  );
 }

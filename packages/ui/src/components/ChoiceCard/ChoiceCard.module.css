@@ -1,0 +1,48 @@
+.card {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+
+  width: 100%;
+
+  padding: 1.5rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+
+  background: rgba(255, 255, 255, 0.02);
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--color-action-primary);
+
+  background: rgba(255, 255, 255, 0.04);
+
+  transform: translateY(-2px);
+}
+
+.selected {
+  border-color: var(--color-action-primary);
+
+  background: rgba(124, 58, 237, 0.12);
+}
+
+.icon {
+  font-size: 2rem;
+
+  line-height: 1;
+}
+
+.selected {
+  border-color: var(--color-action-primary);
+
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.15);
+}
