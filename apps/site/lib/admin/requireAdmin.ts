@@ -1,6 +1,14 @@
 import { createClient } from "../supabase/server";
 import { adminClient } from "../supabase/admin";
 
+function getClient() {
+  if (!adminClient) {
+    throw new Error("Supabase admin client is not configured.");
+  }
+
+  return adminClient;
+}
+
 export async function requireAdmin() {
   const supabase = await createClient();
 
@@ -12,7 +20,9 @@ export async function requireAdmin() {
     throw new Error("Unauthorized");
   }
 
-  const { data: admin } = await adminClient
+  const client = getClient();
+
+  const { data: admin } = await client
     .from("admins")
     .select("id")
     .eq("id", user.id)
