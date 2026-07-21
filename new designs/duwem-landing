@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUWEM - Africa's First Web3-Powered Social Commerce Ecosystem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4C1D95;
+            --primary-deep: #3B1670;
+            --primary-light: #6D28D9;
+            --accent-yellow: #F59E0B;
+            --accent-orange: #F97316;
+            --accent-green: #10B981;
+            --text-dark: #1F2937;
+            --text-gray: #6B7280;
+            --text-light: #9CA3AF;
+            --bg-light: #F0F0F5;
+            --bg-purple: #F3F0FF;
+            --white: #FFFFFF;
+            --dirty-white: #F8F8FA;
+            --border: #E5E7EB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            padding: 1rem 5% 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-purple);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge i {
+            font-size: 0.6rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent-yellow);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            line-height: 1.7;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .hero-feature i {
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .hero-feature:nth-child(2) i {
+            color: var(--accent-green);
+        }
+
+        .hero-feature:nth-child(3) i {
+            color: var(--accent-yellow);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.8rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(76, 29, 149, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--primary-deep);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #2D1055;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 22, 112, 0.4);
+        }
+
+        .btn-accent {
+            background: var(--accent-yellow);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background: #D97706;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Phone Mockup */
+        .phone-mockup {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone {
+            width: 320px;
+            height: 640px;
+            background: white;
+            border-radius: 40px;
+            border: 12px solid #1F2937;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.15), 0 0 0 2px #374151;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 28px;
+            background: #1F2937;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            z-index: 10;
+        }
+
+        .phone-status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 20px 0;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #1F2937;
+        }
+
+        .phone-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .phone-header .logo-text {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .phone-header i {
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+
+        .phone-content {
+            padding: 12px;
+            overflow-y: auto;
+            height: calc(100% - 100px);
+        }
+
+        .phone-post-input {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .phone-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            flex-shrink: 0;
+        }
+
+        .phone-input {
+            flex: 1;
+            background: var(--bg-light);
+            border-radius: 20px;
+            padding: 8px 14px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .phone-post {
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+
+        .phone-post-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .phone-post-header .name {
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .phone-post-header .time {
+            font-size: 0.7rem;
+            color: var(--text-light);
+        }
+
+        .phone-post-header .verified {
+            color: #3B82F6;
+            font-size: 0.7rem;
+        }
+
+        .phone-post-text {
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .phone-product {
+            display: flex;
+            gap: 10px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .phone-product-img {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .phone-product-info {
+            flex: 1;
+        }
+
+        .phone-product-info .title {
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 2px;
+        }
+
+        .phone-product-info .price {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+        }
+
+        .phone-product-info .btn-view {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .phone-actions {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 4px;
+        }
+
+        .phone-actions span {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .phone-actions i {
+            font-size: 0.85rem;
+        }
+
+        .phone-comment {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid var(--border);
+        }
+
+        .phone-comment .comment-text {
+            font-size: 0.75rem;
+        }
+
+        .phone-comment .comment-text strong {
+            font-weight: 700;
+        }
+
+        .phone-nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0 20px;
+            border-top: 1px solid var(--border);
+            background: white;
+        }
+
+        .phone-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            color: var(--text-light);
+            font-size: 0.6rem;
+        }
+
+        .phone-nav-item.active {
+            color: var(--primary);
+        }
+
+        .phone-nav-item i {
+            font-size: 1.1rem;
+        }
+
+        .phone-nav-item .add-btn {
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .phone-bg-shape {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: #E8E8EE;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .card {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: var(--dirty-white);
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .card-icon.purple { background: var(--primary); }
+        .card-icon.orange { background: var(--accent-orange); }
+        .card-icon.green { background: var(--accent-green); }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Different Section */
+        .different-section {
+            background: var(--dirty-white);
+        }
+
+        .different-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .different-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .different-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .different-card .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            margin-bottom: 1rem;
+        }
+
+        .different-card h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .different-card p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .works-section {
+            background: #E8E8EE;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            background: var(--dirty-white);
+            border-radius: 16px;
+            padding: 2rem 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .step-number.purple { background: var(--primary); }
+        .step-number.green { background: var(--accent-green); }
+        .step-number.orange { background: var(--accent-yellow); }
+        .step-number.blue { background: #3B82F6; }
+
+        .step-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .step h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        .step-arrow {
+            position: absolute;
+            right: -1.5rem;
+            top: 3rem;
+            color: var(--border);
+            font-size: 1.2rem;
+        }
+
+        /* Join Section */
+        .join-section {
+            background: var(--dirty-white);
+        }
+
+        .join-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .join-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease;
+        }
+
+        .join-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+        }
+
+        .join-card .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            margin-bottom: 1rem;
+        }
+
+        .join-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .join-card p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            min-height: 40px;
+        }
+
+        .join-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Validation Bar */
+        .validation-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1.5rem;
+            background: #E8E8EE;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+
+        .validation-bar span:first-child {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .validation-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        .validation-item i {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand .logo-icon {
+            background: white;
+            color: var(--primary);
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-links a i {
+            margin-right: 0.5rem;
+            width: 16px;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 2rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: modalIn 0.3s ease;
+        }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-gray);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .modal-close:hover {
+            background: var(--bg-light);
+        }
+
+        .modal h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .modal .btn {
+            width: 100%;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--text-dark);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 2000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast i {
+            color: var(--accent-green);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero p {
+                margin: 0 auto 2rem;
+            }
+
+            .hero-features {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .phone-mockup {
+                order: -1;
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .different-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .step-arrow {
+                display: none;
+            }
+
+            .join-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cards-grid,
+            .different-grid,
+            .steps-grid,
+            .join-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                max-width: 100%;
+            }
+
+            .phone {
+                width: 280px;
+                height: 560px;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon">D</div>
+            DUWEM
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-bolt"></i>
+                Africa's First Web3-Powered Social Commerce Ecosystem
+            </div>
+            <h1>Where Communities<br>Drive <span class="highlight">Commerce</span></h1>
+            <p>DUWEM connects individuals and businesses through social profiles, communities, and branded digital storefronts—enabling everyone to share in the value they help create.</p>
+
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <i class="fas fa-users"></i>
+                    <span>Connect</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Discover</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-star"></i>
+                    <span>Earn Reputation</span>
+                </div>
+            </div>
+
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="openModal('merchant')">
+                    <i class="fas fa-store"></i>
+                    Take Merchant Survey
+                </button>
+                <button class="btn btn-secondary" onclick="openModal('customer')">
+                    <i class="fas fa-users"></i>
+                    Take Customer Survey
+                </button>
+            </div>
+        </div>
+
+        <div class="phone-mockup">
+            <div class="phone-bg-shape"></div>
+            <div class="phone">
+                <div class="phone-notch"></div>
+                <div class="phone-status-bar">
+                    <span>9:41</span>
+                    <div>
+                        <i class="fas fa-signal"></i>
+                        <i class="fas fa-wifi"></i>
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                </div>
+                <div class="phone-header">
+                    <i class="fas fa-bars"></i>
+                    <span class="logo-text">DUWEM</span>
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="phone-content">
+                    <div class="phone-post-input">
+                        <div class="phone-avatar"></div>
+                        <div class="phone-input">What's on your mind?</div>
+                    </div>
+
+                    <div class="phone-post">
+                        <div class="phone-post-header">
+                            <div class="phone-avatar" style="width:28px;height:28px;"></div>
+                            <div>
+                                <span class="name">Boutique Luxe</span>
+                                <i class="fas fa-check-circle verified"></i>
+                                <span class="time">1h ago</span>
+                            </div>
+                        </div>
+                        <div class="phone-post-text">
+                            New collection is here! ✨<br>
+                            Designed for you. Loved by our community. 💜
+                        </div>
+                        <div class="phone-product">
+                            <div class="phone-product-img">👜</div>
+                            <div class="phone-product-info">
+                                <div class="title">Elegant Handbag</div>
+                                <div class="price">₦28,500</div>
+                                <button class="btn-view">View Store</button>
+                            </div>
+                        </div>
+                        <div class="phone-actions">
+                            <span><i class="fas fa-heart" style="color:#EF4444;"></i> 128</span>
+                            <span><i class="far fa-comment"></i> 36</span>
+                            <span><i class="fas fa-share"></i> 24</span>
+                            <span><i class="far fa-bookmark"></i></span>
+                        </div>
+                        <div class="phone-comment">
+                            <div class="phone-avatar" style="width:24px;height:24px;"></div>
+                            <div class="comment-text">
+                                <strong>Ada_Style</strong> Great quality! 🔥
+                            </div>
+                            <span class="time" style="margin-left:auto;">45m</span>
+                        </div>
+                        <div style="text-align:center;font-size:0.7rem;color:var(--text-light);margin-top:6px;">
+                            View all 12 comments
+                        </div>
+                    </div>
+                </div>
+                <div class="phone-nav">
+                    <div class="phone-nav-item active">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </div>
+                    <div class="phone-nav-item">
+                        <i class="fas fa-search"></i>
+                        <span>Explore</span>
+                    </div>
+                    <div class="phone-nav-item">
+                        <div class="add-btn"><i class="fas fa-plus"></i></div>
+                    </div>
+                    <div class="phone-nav-item">
+                        <i class="fas fa-store"></i>
+                        <span>Store</span>
+                    </div>
+                    <div class="phone-nav-item">
+                        <i class="far fa-user"></i>
+                        <span>Profile</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="section">
+            <div class="section-header">
+                <h2>The Problem</h2>
+                <p>Today's platforms create value, but most of it doesn't go back to the people who make it possible.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon purple">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Fragmented Experience</h3>
+                    <p>Businesses manage websites, social media, messaging apps, and marketplaces separately.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon orange">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Communities Create Value</h3>
+                    <p>Customers and creators influence buying decisions but rarely benefit from the value they generate.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon green">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Trust & Loyalty Are Hard</h3>
+                    <p>Merchants struggle to build trusted communities and long-term customer relationships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How DUWEM Is Different -->
+    <section class="different-section">
+        <div class="section">
+            <div class="section-header">
+                <h2>How DUWEM Is Different</h2>
+                <p>DUWEM brings commerce, community, reputation and shared value together.</p>
+            </div>
+            <div class="different-grid">
+                <div class="different-card">
+                    <div class="card-icon purple">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Branded Digital Storefronts</h3>
+                    <p>Every business owns a unified digital presence to showcase products, build trust and grow lasting relationships.</p>
+                </div>
+                <div class="different-card">
+                    <div class="card-icon green">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community-Driven Commerce</h3>
+                    <p>Customers, creators and communities connect, share recommendations, review products and influence buying decisions.</p>
+                </div>
+                <div class="different-card">
+                    <div class="card-icon orange">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Reputation & Trust</h3>
+                    <p>Reputation is earned through authentic participation and recognized across the ecosystem.</p>
+                </div>
+                <div class="different-card">
+                    <div class="card-icon purple">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Rewards & Shared Value</h3>
+                    <p>Meaningful actions are rewarded transparently so everyone shares in the value they help create.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How DUWEM Works -->
+    <section class="works-section">
+        <div class="section">
+            <div class="section-header">
+                <h2>How DUWEM Works</h2>
+            </div>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number purple">01</div>
+                    <div class="step-icon">
+                        <i class="far fa-user" style="color:var(--primary);"></i>
+                    </div>
+                    <h3>Create Your Profile</h3>
+                    <p>Everyone starts with a social profile.</p>
+                    <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+                <div class="step">
+                    <div class="step-number green">02</div>
+                    <div class="step-icon">
+                        <i class="fas fa-users" style="color:var(--accent-green);"></i>
+                    </div>
+                    <h3>Join the Conversation</h3>
+                    <p>Post, follow and build relationships.</p>
+                    <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+                <div class="step">
+                    <div class="step-number orange">03</div>
+                    <div class="step-icon">
+                        <i class="fas fa-store" style="color:var(--accent-yellow);"></i>
+                    </div>
+                    <h3>Discover & Sell</h3>
+                    <p>Businesses activate branded storefronts.</p>
+                    <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+                <div class="step">
+                    <div class="step-number blue">04</div>
+                    <div class="step-icon">
+                        <i class="fas fa-trophy" style="color:#3B82F6;"></i>
+                    </div>
+                    <h3>Grow Together</h3>
+                    <p>Build reputation, support communities and share value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Join Early -->
+    <section class="join-section">
+        <div class="section">
+            <div class="section-header">
+                <h2>Let's Build DUWEM Together</h2>
+                <p>Help shape the future of community-driven commerce and be part of something meaningful.</p>
+            </div>
+            <div class="join-grid">
+                <div class="join-card">
+                    <div class="card-icon purple">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>I'm a Merchant</h3>
+                    <p>Help us design better tools for businesses.</p>
+                    <button class="btn btn-primary" onclick="openModal('merchant')">
+                        Take Merchant Survey
+                    </button>
+                </div>
+                <div class="join-card">
+                    <div class="card-icon purple">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>I'm a Customer</h3>
+                    <p>Help shape the future of social commerce.</p>
+                    <button class="btn btn-primary" onclick="openModal('customer')">
+                        Take Customer Survey
+                    </button>
+                </div>
+                <div class="join-card">
+                    <div class="card-icon orange">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Join Early Access Waitlist</h3>
+                    <p>Get early access, product updates and be part of our founding community.</p>
+                    <button class="btn btn-accent" onclick="openModal('waitlist')">
+                        Join Waitlist
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Validation Bar -->
+    <div class="validation-bar">
+        <span>Currently Validating With</span>
+        <div class="validation-item">
+            <i class="fas fa-shopping-bag"></i>
+            Merchants
+        </div>
+        <div class="validation-item">
+            <i class="fas fa-users"></i>
+            Consumers
+        </div>
+        <div class="validation-item">
+            <i class="fas fa-star"></i>
+            Creators
+        </div>
+        <div class="validation-item">
+            <i class="fas fa-users"></i>
+            Community Leaders
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">D</div>
+                    DUWEM
+                </a>
+                <p>DUWEM is building a social commerce ecosystem where communities drive commerce and everyone shares in the value they help create.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Connect</h4>
+                <a href="#"><i class="fab fa-x-twitter"></i> X (Twitter)</a>
+                <a href="mailto:hello@duwem.com"><i class="fas fa-envelope"></i> hello@duwem.com</a>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 DUWEM. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalContent">
+                <!-- Content injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Submitted successfully!</span>
+    </div>
+
+    <script>
+        const modalData = {
+            merchant: {
+                title: 'Merchant Survey',
+                desc: 'Help us build better tools for your business. Your feedback shapes DUWEM.',
+                fields: [
+                    { label: 'Business Name', type: 'text', placeholder: 'Your business name' },
+                    { label: 'Email', type: 'email', placeholder: 'you@business.com' },
+                    { label: 'Business Type', type: 'select', options: ['Retail', 'Fashion', 'Food & Beverage', 'Services', 'Other'] },
+                    { label: 'What challenges do you face selling online?', type: 'textarea', placeholder: 'Tell us about your challenges...' }
+                ],
+                btnText: 'Submit Survey',
+                btnClass: 'btn-primary'
+            },
+            customer: {
+                title: 'Customer Survey',
+                desc: 'Help us shape the future of social commerce. Your opinion matters.',
+                fields: [
+                    { label: 'Full Name', type: 'text', placeholder: 'Your name' },
+                    { label: 'Email', type: 'email', placeholder: 'you@email.com' },
+                    { label: 'How do you currently discover products?', type: 'select', options: ['Social Media', 'Word of Mouth', 'Search Engines', 'Marketplaces', 'Other'] },
+                    { label: 'What would make your shopping experience better?', type: 'textarea', placeholder: 'Share your thoughts...' }
+                ],
+                btnText: 'Submit Survey',
+                btnClass: 'btn-primary'
+            },
+            waitlist: {
+                title: 'Join the Waitlist',
+                desc: 'Be among the first to experience DUWEM. Get early access and exclusive updates.',
+                fields: [
+                    { label: 'Full Name', type: 'text', placeholder: 'Your name' },
+                    { label: 'Email', type: 'email', placeholder: 'you@email.com' },
+                    { label: 'I am a...', type: 'select', options: ['Merchant', 'Customer', 'Creator', 'Community Leader', 'Investor'] }
+                ],
+                btnText: 'Join Waitlist',
+                btnClass: 'btn-accent'
+            }
+        };
+
+        function openModal(type) {
+            const data = modalData[type];
+            const content = document.getElementById('modalContent');
+
+            let fieldsHtml = '';
+            data.fields.forEach(field => {
+                if (field.type === 'select') {
+                    const options = field.options.map(opt => `<option value="${opt}">${opt}</option>`).join('');
+                    fieldsHtml += `
+                        <div class="form-group">
+                            <label>${field.label}</label>
+                            <select>
+                                <option value="">Select an option</option>
+                                ${options}
+                            </select>
+                        </div>
+                    `;
+                } else if (field.type === 'textarea') {
+                    fieldsHtml += `
+                        <div class="form-group">
+                            <label>${field.label}</label>
+                            <textarea placeholder="${field.placeholder}"></textarea>
+                        </div>
+                    `;
+                } else {
+                    fieldsHtml += `
+                        <div class="form-group">
+                            <label>${field.label}</label>
+                            <input type="${field.type}" placeholder="${field.placeholder}">
+                        </div>
+                    `;
+                }
+            });
+
+            content.innerHTML = `
+                <h3>${data.title}</h3>
+                <p>${data.desc}</p>
+                <form onsubmit="handleSubmit(event, '${data.btnText}')">
+                    ${fieldsHtml}
+                    <button type="submit" class="btn ${data.btnClass}">${data.btnText}</button>
+                </form>
+            `;
+
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (!event || event.target.id === 'modalOverlay') {
+                document.getElementById('modalOverlay').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function handleSubmit(event, btnText) {
+            event.preventDefault();
+            closeModal();
+            showToast(btnText === 'Join Waitlist' ? 'You're on the list! 🎉' : 'Survey submitted! Thank you 🙏');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3500);
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
