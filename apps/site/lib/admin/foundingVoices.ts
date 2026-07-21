@@ -2,8 +2,18 @@ import { adminClient } from "../supabase/admin";
 import { createMerchant } from "../merchant/service";
 import { createStore } from "../store/service";
 
+function getClient() {
+  if (!adminClient) {
+    throw new Error("Supabase admin client is not configured.");
+  }
+
+  return adminClient;
+}
+
 export async function getFoundingVoices() {
-  const { data, error } = await adminClient
+  const client = getClient();
+
+  const { data, error } = await client
     .from("founding_voices")
     .select("*")
     .order("created_at", {
@@ -20,7 +30,9 @@ export async function getFoundingVoices() {
 export async function getFoundingVoice(
   foundingVoiceId: string
 ) {
-  const { data, error } = await adminClient
+  const client = getClient();
+
+  const { data, error } = await client
     .from("founding_voices")
     .select("*")
     .eq("founding_voice_id", foundingVoiceId)
@@ -37,7 +49,9 @@ export async function updateFoundingVoiceStatus(
   foundingVoiceId: string,
   status: "approved" | "rejected"
 ) {
-  const { data, error } = await adminClient
+  const client = getClient();
+
+  const { data, error } = await client
     .from("founding_voices")
     .update({
       status,
