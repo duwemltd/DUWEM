@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@netlify/plugin-nextjs':
+        specifier: ^5.15.12
+        version: 5.15.12
       prettier:
         specifier: ^3.7.4
         version: 3.7.4
@@ -383,6 +386,10 @@ packages:
     engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
     cpu: [x64]
     os: [win32]
+
+  '@netlify/plugin-nextjs@5.15.12':
+    resolution: {integrity: sha512-eydPd4gtc/OJOx9IbIJ5CRrC5K3rLxfEQS/S/fRNEAAT0qFvPoQVy23VdK3jRXKFJWXdCRl6ZudWLEZECQPSRQ==}
+    engines: {node: '>=18.0.0'}
 
   '@next/env@16.2.0':
     resolution: {integrity: sha512-OZIbODWWAi0epQRCRjNe1VO45LOFBzgiyqmTLzIqWq6u1wrxKnAyz1HH6tgY/Mc81YzIjRPoYsPAEr4QV4l9TA==}
@@ -1721,6 +1728,8 @@ snapshots:
 
   '@img/sharp-win32-x64@0.34.5':
     optional: true
+
+  '@netlify/plugin-nextjs@5.15.12': {}
 
   '@next/env@16.2.0': {}
 
